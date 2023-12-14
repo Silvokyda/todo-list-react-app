@@ -1,6 +1,6 @@
-// src/App.tsx
 import React, { useState } from 'react';
 import TodoList from './components/TodoList';
+import './App.css'; 
 
 const App: React.FC = () => {
   const [tasks, setTasks] = useState<{ task: string; completed: boolean }[]>([]);
@@ -27,10 +27,12 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <h1>Todo List</h1>
-      <input type="text" value={newTask} onChange={(e) => setNewTask(e.target.value)} />
-      <button onClick={addTask}>Add Task</button>
-      <TodoList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
+      <div className="todo-container">
+        <h1>Todo List</h1>
+        <input type="text" value={newTask} onChange={(e) => setNewTask(e.target.value)} />
+        <button onClick={addTask}>Add Task</button>
+        <TodoList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
+      </div>
     </div>
   );
 };
